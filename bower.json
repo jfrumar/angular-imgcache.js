@@ -22,6 +22,6 @@
   ],
   "dependencies": {
     "angular": "1.2.*",
-    "imgcache.js": "https://github.com/jfrumar/imgcache.js.git#~0.7.6"
+    "imgcache.js": "https://github.com/jfrumar/imgcache.js.git"
   }
 }
