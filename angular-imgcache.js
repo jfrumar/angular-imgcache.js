@@ -39,7 +39,7 @@ angular.module('ImgCache', [])
   })
 
   .directive('imgCache', function(NUMBER_OF_CACHE_ATTEMPTS, $log) {
-      $log = $log.getInstance('imgCache', true, true);
+      $log = $log.getInstance('imgCache', false, true);
       return {
           restrict: 'A',
           scope: {
