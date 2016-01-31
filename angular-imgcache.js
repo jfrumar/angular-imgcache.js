@@ -38,7 +38,7 @@ angular.module('ImgCache', [])
 
   })
 
-  .directive('imgCache', function(NUMBER_OF_CACHE_ATTEMPTS, $log) {
+  .directive('imgCache', ['NUMBER_OF_CACHE_ATTEMPTS', '$log', function(NUMBER_OF_CACHE_ATTEMPTS, $log) {
       $log = $log.getInstance('imgCache', false, true);
       return {
           restrict: 'A',
@@ -123,4 +123,4 @@ angular.module('ImgCache', [])
 
           }
       };
-  });
+  }]);
