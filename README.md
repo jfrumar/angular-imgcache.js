@@ -3,6 +3,10 @@ angular-imgcache.js
 
 Simple [imgcache.js](https://github.com/chrisben/imgcache.js) wrapper for AngularJS, can be user with Ionic/Cordova/Phonegap.
 
+## Fork overview
+
+This fork implements retries and uses our own $log extender for logging.
+
 ## Installation
 
 Install via bower
