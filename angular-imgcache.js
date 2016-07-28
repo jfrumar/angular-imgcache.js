@@ -39,7 +39,7 @@ angular.module('ImgCache', [])
   })
 
   .directive('imgCache', ['NUMBER_OF_CACHE_ATTEMPTS', '$log', function(NUMBER_OF_CACHE_ATTEMPTS, $log) {
-      $log = $log.getInstance('imgCache', false, true);
+      $log = $log.getInstance('imgCache');
       return {
           restrict: 'A',
           scope: {
@@ -51,7 +51,7 @@ angular.module('ImgCache', [])
               var setImg = function(type, el, src) {
 
                   ImgCache.getCachedFileURL(src, function(src, dest) {
-                      $log.log("Fetching cached image {src} for use  as a {type}", {src: src, type: type});
+                      $log.log("Fetching cached image '" + src + " for use  as a '" + type + "'");
                       if(type === 'bg') {
                           el.css({'background-image': 'url(' + dest + ')' });
                       } else {
@@ -110,12 +110,24 @@ angular.module('ImgCache', [])
               };
 
               attrs.$observe('icSrc', function(src) {
+                  if (!src) {
+                    return $log.warn("attempted to load a cached image with no src attribute");
+                  } else {
+                    $log.log("attempting to load a potentially cached image for icSrc '" +
+                        src + "'");
+                  }
 
                   loadImg('src', el, src);
 
               });
 
               attrs.$observe('icBg', function(src) {
+                if (!src) {
+                  return $log.warn("attempted to load a cached image with no src attribute");
+                } else {
+                  $log.log("attempting to load a potentially cached image for icBg '" +
+                    src + "'");
+                }
 
                   loadImg('bg', el, src);
 
